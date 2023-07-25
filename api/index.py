@@ -6,6 +6,7 @@ app = Flask(__name__)
 def home():
     return 'Hello, World!'
 
-@app.route('/about')
-def about():
-    return 'About'
+@app.route('/merge_pdfs', methods=['POST'])
+def merge_pdfs():
+    data = request.get_json()
+    return data
