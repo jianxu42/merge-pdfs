@@ -51,13 +51,7 @@ def merge_pdfs():
 
     # Open the PDF file
     with open('merged.pdf', 'rb') as f:
-        # Read the PDF file using PyPDF2
-        pdf_reader = PyPDF2.PdfReader(f)
-        # Get the first page of the PDF
-        page = pdf_reader.getPage(0)
-        # Convert the page to a byte string
-        page_bytes = page.extractText().encode('utf-8')
-        # Encode the byte string as base64
-        base64_string = base64.b64encode(page_bytes).decode('utf-8')
+        pdf_bytes = f.read()
+        base64_string = base64.b64encode(pdf_bytes).decode('utf-8')
 
     return base64_string
